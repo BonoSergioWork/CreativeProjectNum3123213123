@@ -164,6 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPersistent: 1
   unitsInCombatList: []
+  FTR_messages:
+  - Commence!
 --- !u!4 &125680564
 Transform:
   m_ObjectHideFlags: 0

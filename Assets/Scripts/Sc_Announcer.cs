@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -14,8 +15,9 @@ public class Sc_Announcer : MonoBehaviour
     /// <summary>
     /// Text to write is always the active text to show, therefore it isn't necessary to pass it as parameter
     /// </summary>
-    private string textToWrite;
+    private List<string> textToWrite = new List<string>();
     private bool isWriting;
+    private int currentIndex = 0;
     private Sc_EventManager eventManagerRef;
 
     private void Awake()
@@ -42,14 +44,22 @@ public class Sc_Announcer : MonoBehaviour
         eventManagerRef.OnSendTextToAnnounce -= ReceiveText;
     }
 
-    public void ReceiveText(string text)
+    public void ReceiveText(List<string> textList)
     {
-        textToWrite = text;
+        textToWrite = textList;
+        currentIndex = 0;
         ImmediateWriteText();
     }
 
     private void ImmediateWriteText()
     {
-        txtAnnouncer.text = textToWrite;
+        txtAnnouncer.text = textToWrite[currentIndex];
+
+        isWriting = false;
+        currentIndex++;
+    }
+    public void ContinueText()
+    {
+        ImmediateWriteText();
     }
 }

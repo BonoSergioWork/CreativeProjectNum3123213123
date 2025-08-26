@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -9,14 +10,14 @@ using UnityEngine;
 /// 
 public class Sc_EventManager : Singleton<Sc_EventManager>
 {
-    public event Action<string> OnSendTextToAnnounce;
+    public event Action<List<string>> OnSendTextToAnnounce;
 
     //checks if the instance exists
-    public void SendTextToAnnounce(string msg)
+    public void SendTextToAnnounce(List<string> msgs)
     {
         if (OnSendTextToAnnounce != null)
         {
-            OnSendTextToAnnounce(msg);
+            OnSendTextToAnnounce(msgs);
         }
     }
 
