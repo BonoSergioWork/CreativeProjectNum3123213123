@@ -11,6 +11,7 @@ using UnityEngine;
 public class Sc_EventManager : Singleton<Sc_EventManager>
 {
     public event Action<List<string>> OnSendTextToAnnounce;
+    public event Action OnMakeStep;
 
     //checks if the instance exists
     public void SendTextToAnnounce(List<string> msgs)
@@ -18,6 +19,14 @@ public class Sc_EventManager : Singleton<Sc_EventManager>
         if (OnSendTextToAnnounce != null)
         {
             OnSendTextToAnnounce(msgs);
+        }
+    }
+
+    public void MakeStep()
+    {
+        if (OnMakeStep != null)
+        {
+            OnMakeStep();
         }
     }
 

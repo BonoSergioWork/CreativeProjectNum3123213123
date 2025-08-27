@@ -1,16 +1,16 @@
+using System;
 using UnityEngine;
 
-public class Enums : MonoBehaviour
+public abstract class Enums
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public enum E_CombatPhases
     {
-        
+        START,
+        PRECOMBAT,
+        DECISIONMAKING,
+        ACT,
+        POSTCOMBAT,
+        END
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
