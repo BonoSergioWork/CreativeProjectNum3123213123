@@ -15,7 +15,7 @@ public class Sc_Announcer : MonoBehaviour
     /// <summary>
     /// Text to write is always the active text to show, therefore it isn't necessary to pass it as parameter
     /// </summary>
-    private List<string> textToWrite = new List<string>();
+    private string textToWrite;
     private bool isWriting;
     private int currentIndex = 0;
     private Sc_EventManager eventManagerRef;
@@ -44,7 +44,7 @@ public class Sc_Announcer : MonoBehaviour
         eventManagerRef.OnSendTextToAnnounce -= ReceiveText;
     }
 
-    public void ReceiveText(List<string> textList)
+    public void ReceiveText(string textList)
     {
         textToWrite = textList;
         currentIndex = 0;
@@ -53,7 +53,7 @@ public class Sc_Announcer : MonoBehaviour
 
     private void ImmediateWriteText()
     {
-        txtAnnouncer.text = textToWrite[currentIndex];
+        txtAnnouncer.text = textToWrite;
 
         isWriting = false;
         currentIndex++;

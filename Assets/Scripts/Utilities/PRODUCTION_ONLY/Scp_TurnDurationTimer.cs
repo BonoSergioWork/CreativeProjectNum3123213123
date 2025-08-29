@@ -35,6 +35,7 @@ public class Scp_TurnDurationTimer : Singleton<Scp_TurnDurationTimer>
             {
                 currentTime = 0f;
                 canCount = false;
+                txtTimer.text = currentTime.ToString();
                 Debug.Log("TIMER STOPPED WEEEEEEEE");
             }
         }

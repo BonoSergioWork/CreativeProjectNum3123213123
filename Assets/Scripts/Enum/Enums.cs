@@ -9,6 +9,7 @@ public abstract class Enums
         PRECOMBAT,
         DECISIONMAKING,
         ACT,
+        ENDROUNDCHECK,
         POSTCOMBAT,
         END
     }

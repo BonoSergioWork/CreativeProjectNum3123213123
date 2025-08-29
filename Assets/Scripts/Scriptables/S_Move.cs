@@ -1,8 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MOVE_", menuName = "ScriptableObjects/NewMove", order = 1)]
+[CreateAssetMenu(fileName = "SOmove_", menuName = "ScriptableObjects/NewMove", order = 1)]
 public class S_Move : ScriptableObject
 {
-    [SerializeField] private List<Sc_EffectFather> EffectList= new List<Sc_EffectFather>();
+    public string name;
+    public Animation anim;
+    public int damage;
+    public float timeNeeded;
+    public List<Sc_Unit> unitsTargetedList= new List<Sc_Unit>();
+    public List<Sc_EffectFather> effectsList= new List<Sc_EffectFather>();
 }
