@@ -12,6 +12,7 @@ public class Sc_EventManager : Singleton<Sc_EventManager>
 {
     public event Action<string> OnSendTextToAnnounce;
     public event Action OnMakeStep;
+    public event Action OnDecisionPhaseStart;
 
     //checks if the instance exists
     public void SendTextToAnnounce(string msg)
@@ -29,5 +30,11 @@ public class Sc_EventManager : Singleton<Sc_EventManager>
             OnMakeStep();
         }
     }
-
+    public void DecisionPhaseStart()
+    {
+        if (OnDecisionPhaseStart != null)
+        {
+            OnDecisionPhaseStart();
+        }
+    }
 }

@@ -19,6 +19,7 @@ public class Sc_CombatManager : Singleton<Sc_CombatManager>
     [SerializeField] private List<string> FTR_messages = new List<string>();
     [SerializeField] private Sc_Deque dequeRef;
     [SerializeField] private ST_ActionFlag af_startCombat;
+    [SerializeField] private ST_ActionFlag af_decisionMaking;
     private Sc_EventManager eventManagerRef;
     private E_CombatPhases currentPhase=E_CombatPhases.START;
 
@@ -59,10 +60,36 @@ public class Sc_CombatManager : Singleton<Sc_CombatManager>
 
     private void CallNextAction()
     {
+        if (!dequeRef.isDequeEmpty())
+        {
+            SwitchPhase();
+        }else
+        {
+
+        }
         //if(dequeRef.isDequeEmpty())
         Debug.Log("Fuck it I need a canbeputinthequeue class");
         //S_Move currentMove=dequeRef.GetTopFlag();
        // switch(currentMove.hide)
+    }
+
+    private void SwitchPhase()
+    {
+        //debugstuff
+        bool isEnding = false;
+        bool isDecision = true;
+        //
+        //if the combat is not ended, switch to decisionmaking
+        //if the combat ended, switch to ending(not necessary needed to pass trough the deque in that case)
+        if (isDecision)
+        {
+            Announce(af_decisionMaking);
+            eventManagerRef.DecisionPhaseStart();
+        }
+        if (isEnding)
+        {
+            Debug.Log("endingcalled");
+        }
     }
 }
 

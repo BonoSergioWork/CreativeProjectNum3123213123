@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SOmove_", menuName = "ScriptableObjects/NewMove", order = 1)]
-public class S_Move : ScriptableObject
+public class S_Move : S_DequeElement
 {
-    public string name;
     public Animation anim;
     public int damage;
     public float timeNeeded;
