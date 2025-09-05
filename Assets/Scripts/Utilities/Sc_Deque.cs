@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Sc_Deque : MonoBehaviour
 {
-    private LinkedList<S_DequeElement> elementsDeque = new LinkedList<S_DequeElement>();
+    private LinkedList<Sc_DequeElement> elementsDeque = new LinkedList<Sc_DequeElement>();
     
     public bool isDequeEmpty()
     {
@@ -12,35 +12,35 @@ public class Sc_Deque : MonoBehaviour
         return false;
     }
 
-    public void QueueFlagToTop(S_DequeElement flag)
+    public void QueueFlagToTop(Sc_DequeElement flag)
     {
         elementsDeque.AddFirst(flag);
     }
-    public void QueueFlagToBottom(S_DequeElement flag)
+    public void QueueFlagToBottom(Sc_DequeElement flag)
     {
         elementsDeque.AddLast(flag);
     }
 
-    public S_DequeElement GetTopFlag()
+    public Sc_DequeElement GetTopFlag()
     {
-        S_DequeElement flag = elementsDeque.First.Value;
+        Sc_DequeElement flag = elementsDeque.First.Value;
         elementsDeque.RemoveFirst();
         return flag;
     }
-    public S_DequeElement GetLastFlag()
+    public Sc_DequeElement GetLastFlag()
     {
-        S_DequeElement flag = elementsDeque.Last.Value;
+        Sc_DequeElement flag = elementsDeque.Last.Value;
         elementsDeque.RemoveLast();
         return flag;
     }
-    public S_DequeElement PeekTopFlag()
+    public Sc_DequeElement PeekTopFlag()
     {
-        S_DequeElement flag = elementsDeque.First.Value;
+        Sc_DequeElement flag = elementsDeque.First.Value;
         return flag;
     }
-    public S_DequeElement PeekLastFlag()
+    public Sc_DequeElement PeekLastFlag()
     {
-        S_DequeElement flag = elementsDeque.Last.Value;
+        Sc_DequeElement flag = elementsDeque.Last.Value;
         return flag;
     }
     public void ClearDeque()
